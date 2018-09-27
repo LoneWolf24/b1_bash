@@ -12,7 +12,11 @@ SS Prohibited:
 
 Valid email:
 fname@gmail.com
-
+abdulazizkodirov@gmail.com
+abdukodirkodirov@gmail.com
+akodi1857@westada.org
 
 Invalid email:
 name@gmail
+@gmail.com
+

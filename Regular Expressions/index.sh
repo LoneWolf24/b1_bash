@@ -1,21 +1,45 @@
 #!/bin/bash
 clear
-echo "Hello, would you like to check social security validation? (y/n)";
+#######################
+NONE='\033[00m'
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+PURPLE='\033[01;35m'
+CYAN='\033[01;36m'
+WHITE='\033[01;37m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+BLINK='\033[5m'
+######################
+echo -e "                            ${BLINK}${CYAN}SOCIAL SECURITY NUMBER${NONE}       ";
+echo "Hello, would you like to see valid social security numbers? (y/n)";
 read SSanswer;
+echo "";
 if [ "$SSanswer" == "y" ] || [ "$SSanswer" == "yes" ] || [ "$SSanswer" == "Yes" ] || [ "$SSanswer" == "Y" ]
     then
-        echo -n "Enter a social security number: ";
-        read SSnumber;
-        echo ^\d{3}-\d{2}-\d{4}$;
-        #grep -E '^\d{3}-\d{2}-\d{4}$' ssnumber.txt
-            #if [ "$SSnumber" == '^\d{3}-\d{2}-\d{4}$' ]
-            if [ $SSnumber{^\d{3}-\d{2}-\d{4}$} ]
-                then
-                    echo "$SSnumber is a valid social security number.";
-            else
-                echo "$SSnumber is not a valid social security number.";
-            fi
+    		file=ssnumber.txt;
+    		pattern='^\d{3}-\d{2}-\d{4}$';    
+        echo "Here are some valid SSN:";
+        echo -e ${GREEN};
+        egrep ${pattern} ${file};  
+        echo -e ${NONE};                
 else
-    echo "Social security validation failed!";
+    echo -e "${RED}Valid social security numbers failed to show!${NONE}";
+fi
+echo -e "                              ${BLINK}${CYAN}E-MAIL ADDRESS${NONE}       ";
+echo "Would you like to see valid e-mail addresses?(y/n)";
+read MAILanswer;
+echo "";
+if [ "$MAILanswer" == "y" ] || [ "$MAILanswer" == "Y" ] || [ "$MAILanswer" == "yes" ] || [ "$MAILanswer" == "YES" ] || [ "$MAILanswer" == "Yes" ]
+	then
+			file=ssnumber.txt;
+			pattern='.+\@.+\..+';
+			echo "Here are some valid email addresses:";
+			echo -e ${GREEN};
+			egrep ${pattern} ${file};
+			echo -e ${NONE};
+else
+	echo -e "${RED}Valid email addresses failed to show!${NONE}";
 fi
 
