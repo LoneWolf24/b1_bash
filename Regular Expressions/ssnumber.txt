@@ -8,7 +8,8 @@ Invalid:
 12-21-1234
 
 SS Prohibited:
-
+078-05-1120
+219-09-9999
 
 Valid email:
 fname@gmail.com
